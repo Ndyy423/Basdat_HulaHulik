@@ -3,9 +3,6 @@
 -- Penerapan Basis Data
 -- Studi kasus : TepatSasar
 -- DBMS        : MySQL 8 / MariaDB (InnoDB)
--- Prasyarat   : backup Modul 10 sudah di-import
---               (tabel petugas, warga, verifikasi_lapangan,
---               pengajuan_bantuan)
 -- =====================================================
 
 -- Database dibuat manual lewat phpMyAdmin (B2), lalu dipilih:
