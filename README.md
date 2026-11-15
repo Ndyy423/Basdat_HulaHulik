@@ -6,9 +6,9 @@ Mata Kuliah Praktik Basis Data (RPL24108), Pertemuan 11.
 
 | Nama | NIM |
 | --- | --- |
-| [isi nama] | [isi NIM] |
-| [isi nama] | [isi NIM] |
-
+| Evan Bhagaskara           | 264311068 |
+| Ikhzaniero Ardyana Juniar | 264311079 |
+| Muhammad Andy Dwi Subandi | 264311076 |
 ## Studi Kasus
 
 **TepatSasar**, aplikasi pendataan dan verifikasi warga prasejahtera di Madiun (SDG 1 Tanpa Kemiskinan). Basis data berasal dari Modul 10 dengan empat tabel: `petugas`, `warga`, `verifikasi_lapangan`, dan `pengajuan_bantuan`. Satu kolom JSON, `detail_kondisi`, ditambahkan pada tabel `warga` untuk menyimpan atribut kondisi warga yang berbeda tiap kategori kerentanan.
