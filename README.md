@@ -7,7 +7,7 @@ Mata Kuliah Praktik Basis Data (RPL24108), Pertemuan 11.
 | Nama | NIM |
 | --- | --- |
 | Evan Bhagaskara           | 264311068 |
-| Ikhzaniero Ardyana Juniar | 264311079 |
+| Ikhzaniero Ardyana Juniar | 264311070 |
 | Muhammad Andy Dwi Subandi | 264311076 |
 ## Studi Kasus
 
