@@ -4,9 +4,15 @@ Praktikum Basis Data Modul 12 (konsep pemrosesan query) dengan **MongoDB** sebag
 Kelompok 1C TRPL, studi kasus **TepatSasar** (SDG 1 Tanpa Kemiskinan, pendataan warga prasejahtera di Madiun).
 
 
-### Dokumentasi Kerja Kelompok (ada juga bersama kelompok lain)
+## Dokumentasi Kerja Kelompok (ada juga bersama kelompok lain)
+
+### Di Cafe
 ![1](bukti/dokumentasi1.jpeg)
+
+### Di Lab
 ![2](bukti/dokumentasi2.jpeg)
+
+### Di Lab
 ![3](bukti/dokumentasi3.jpeg)
 
 ## Ringkasan
