@@ -5,6 +5,9 @@ Kelompok 1C TRPL, studi kasus **TepatSasar** (SDG 1 Tanpa Kemiskinan, pendataan 
 
 
 ## Dokumentasi Kerja Kelompok (ada juga bersama kelompok lain)
+![1](bukti/Dokumentasi Kerja Kelompok Di Cafe.jpeg)
+![2](bukti/Dokumentasi kerja kelompok bersama.jpeg)
+![3](bukti/Dokumentasi kerja kelompok bersama 2.jpeg)
 
 ## Ringkasan
 
