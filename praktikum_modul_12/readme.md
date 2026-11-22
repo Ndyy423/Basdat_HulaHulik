@@ -3,6 +3,9 @@
 Praktikum Basis Data Modul 12 (konsep pemrosesan query) dengan **MongoDB** sebagai DBMS target.
 Kelompok 1C TRPL, studi kasus **TepatSasar** (SDG 1 Tanpa Kemiskinan, pendataan warga prasejahtera di Madiun).
 
+
+## Dokumentasi Kerja Kelompok (ada juga bersama kelompok lain)
+
 ## Ringkasan
 
 Repositori ini berisi seluruh skrip dan diagram praktikum, yang mencakup:
@@ -48,7 +51,7 @@ praktikum_modul12
 | --- | --- | --- |
 | `01_migrasi_data_latihan.js` | `transport_db` | Migrasi data ROUTES (3 dokumen) dan TRIPS (6 dokumen) ke MongoDB |
 | `02_query_transportasi.js` | `transport_db` | Query utama dan `explain` sebelum serta sesudah index `idx_route_started` |
-| `03_pengujian_dcl.js` | `transport_db` | Kumpulan perintah RBAC: membuat akun, GRANT, REVOKE, dan pengujiannya |
+| `03_pengujian_dcl.js` | `transport_db` | Skrip RBAC yang menyesuaikan diri dengan akun yang login: uji tanpa login, membuat akun dan GRANT/REVOKE (`admin_ta`), serta uji `report_user` |
 | `04_rancangan_migrasi_pjbl.js` | `tepatsasar` | Rancangan migrasi fitur KF-08 (skema, query, index, role), tidak wajib dijalankan |
 | `05_migrasi_tepatsasar.js` | `tepatsasar` | Migrasi data `modul10.sql` (MySQL) ke MongoDB dengan dokumen tersemat |
 | `06_query_tepatsasar.js` | `tepatsasar` | Query, CRUD, dan uji integritas data TepatSasar |
@@ -68,7 +71,18 @@ mongosh 'mongodb://127.0.0.1:27017/admin' -u admin_ta -p --authenticationDatabas
 mongosh 'mongodb://127.0.0.1:27017/admin' -u admin_ta -p --authenticationDatabase admin --file scripts/06_query_tepatsasar.js
 ```
 
-Skrip `03_pengujian_dcl.js` tidak dijalankan dengan `--file`. Isinya perintah bertahap yang ditempel manual di mongosh karena pengujian membutuhkan pergantian akun.
+Skrip `03_pengujian_dcl.js` dijalankan beberapa kali dengan akun berbeda. Nilai `TAHAP` di dalam skrip dipilih untuk sesi `admin_ta` (1 = buat akun dan GRANT, 2 = REVOKE, 3 = GRANT ulang):
+
+```powershell
+# tanpa login: harus ditolak
+mongosh 'mongodb://127.0.0.1:27017/transport_db' --file scripts/03_pengujian_dcl.js
+
+# admin_ta (TAHAP = 1, lalu TAHAP = 2 untuk REVOKE)
+mongosh 'mongodb://127.0.0.1:27017/admin' -u admin_ta -p --authenticationDatabase admin --file scripts/03_pengujian_dcl.js
+
+# uji akun report_user (sebelum dan sesudah REVOKE)
+mongosh 'mongodb://127.0.0.1:27017/transport_db' -u report_user -p --authenticationDatabase transport_db --file scripts/03_pengujian_dcl.js
+```
 
 ## Kasus Latihan: Layanan Transportasi
 
@@ -129,6 +143,24 @@ Data `modul10.sql` (2 petugas, 4 warga, 4 verifikasi lapangan, 9 pengajuan bantu
 - kolom `jumlah_pengajuan` dihitung dengan `$size`, bukan lagi disimpan.
 
 Fitur yang dirancang adalah **KF-08**, yaitu daftar penerima bantuan (pengajuan disetujui dan verifikasi layak). Query pada MongoDB tidak lagi membutuhkan join tiga tabel.
+
+## Pembagian Kerja Kelompok
+
+Pekerjaan praktikum dibagi per bagian. Kolom penanggung jawab diisi nama anggota yang mengerjakan.
+
+| No | Pekerjaan | Berkas / hasil | Penanggung jawab |
+| --- | --- | --- | --- |
+| 1 | Persiapan MongoDB, mongosh, dan struktur folder | Lingkungan kerja | |
+| 2 | Migrasi data latihan ROUTES dan TRIPS | `01_migrasi_data_latihan.js` | |
+| 3 | Aljabar relasional, query tree, dan perbandingan urutan operasi | `02_query_transportasi.js`, `diagram/` | |
+| 4 | Estimasi query cost dan inspeksi execution plan | `02_query_transportasi.js`, `dokumentasi/` | |
+| 5 | Pengujian kontrol akses DCL (RBAC) | `03_pengujian_dcl.js` | |
+| 6 | Rancangan migrasi fitur PjBL (KF-08) | `04_rancangan_migrasi_pjbl.js`, `diagram/query_tree_kf08.png` | |
+| 7 | Migrasi data TepatSasar dari MySQL ke MongoDB | `05_migrasi_tepatsasar.js`, `06_query_tepatsasar.js` | |
+| 8 | Penyusunan laporan dan dokumentasi | `dokumentasi/` | |
+| 9 | Pengelolaan repositori Git dan README | Repositori ini | |
+
+Setiap anggota juga menulis refleksi individu dan skor kontribusi (skala 1 sampai 10) pada laporan.
 
 ## Catatan Keamanan
 
