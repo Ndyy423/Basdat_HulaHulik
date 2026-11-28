@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Jalankan Semua Tahap Migrasi & Validasi",
+      "type": "shell",
+      "command": "python migration/extraction/01_extract_mysql.py && python migration/transformation/02_transform_cassandra.py && python migration/loading/03_load_cassandra.py && python migration/validation/07_validasi_migrasi.py",
+      "problemMatcher": []
+    }
+  ]
+}
